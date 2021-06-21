@@ -10,8 +10,10 @@
     </div>
   <% end %>
   <div class="post_title">
+    <%= image_tag(@post.picture.url) if @post.picture && @post.picture.url %>
     <%= form.label :picture %>
-    <%= form.text_field :picture %> 
+    <%= form.file_field :picture %>
+    <%= form.hidden_field :picture_cache %>
   </div>
   <div class="post_title">
     <%= form.label :content %>
