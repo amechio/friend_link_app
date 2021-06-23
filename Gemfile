@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'binding_of_caller'
 
 gem 'rails', '~> 5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
