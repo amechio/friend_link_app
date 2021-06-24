@@ -1,21 +1,19 @@
-<h1>一覧画面</h1>
+<h1>ホーム</h1>
 <p><%= notice %></p>
-<table>
-  <tr>
-    <th>ユーザー名</th>
-    <th>写真</th>
-    <th>本文</th>
-  </tr>
+<%= link_to '新規作成', new_post_path, class: "btn" %>
+<div class="container-fluid">
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.user.name %></td>
-    <td><%= post.picture %></td>
-    <td><%= post.content %></td>
-    <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
-    <td><%= link_to '編集する', edit_post_path(post.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '削除する', post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
+  <ul class="row">
+    <li class="col-md-2"><%= post.user.name %></li>
+    <li class="col-md-4"><%= image_tag post.picture.url if post.picture && post.picture.url %></li>
+    <li class="col-md-3"><%= post.content %></li>
+    <li class="col-md-3">
+      <div class="row">
+        <li class="col-xs-4 col-md-1"><%= link_to '詳細', post_path(post.id), class: "option" %></li>
+        <li class="col-xs-4 col-md-1"><%= link_to '編集', edit_post_path(post.id), data: { confirm: '本当に編集していいですか？' }, class: "option" %></li>
+        <li class="col-xs-4 col-md-1"><%= link_to '削除', post_path(post.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "option" %></li>
+      </div>
+    </li>
+  </ul>
 <% end %>
-</table>
-
-<%= link_to '新規作成', new_post_path %>
+</div>

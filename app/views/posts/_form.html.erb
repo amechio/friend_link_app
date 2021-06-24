@@ -11,14 +11,14 @@
   <% end %>
   <div class="post_title">
     <%= image_tag(@post.picture.url) if @post.picture && @post.picture.url %>
-    <%= form.label :picture %>
+    <%= form.label :picture, class: "label" %>
     <%= form.file_field :picture %>
     <%= form.hidden_field :picture_cache %>
   </div>
   <div class="post_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :content, class: "label" %>
+    <%= form.text_field :content, class: "input" %>
   </div>
-  <%= form.submit %>
+  <%= form.submit "投稿する", class: "btn" %>
+  <%= link_to "一覧画面にもどる", posts_path, class: "back" %>
 <% end %>
-<%= link_to "一覧画面にもどる", posts_path %>
